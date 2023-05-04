@@ -10,7 +10,7 @@ services:
       # - MYSQL_USER=root
       # - MYSQL_PASSWORD=123456
     volumes:
-      - /golang-app/data/mysql:/var/lib/mysql
+      - golang-data:/var/lib/mysql
     ports:
       - "3306:3306"
   phpmyadmin:
@@ -34,3 +34,5 @@ services:
   #     - mysql
   #   ports:
   #     - "9090:8080"
+volumes:
+  golang-data:
