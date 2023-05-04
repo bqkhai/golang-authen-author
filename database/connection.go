@@ -11,7 +11,7 @@ import (
 var Instance *gorm.DB
 var dbError error
 
-func Connect(connectionString string) () {
+func Connect(connectionString string) {
 	Instance, dbError = gorm.Open(mysql.Open(connectionString), &gorm.Config{})
 	if dbError != nil {
 		log.Fatal(dbError)

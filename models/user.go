@@ -1,6 +1,10 @@
 package models
 
-import "gorm.io/gorm"
+import (
+	"time"
+
+	"gorm.io/gorm"
+)
 
 type Role int
 
@@ -12,10 +16,33 @@ const (
 
 type User struct {
 	gorm.Model
-	Id       uint `gorm:"primaryKey"`
-	FullName string
-	UserName string
+	Id               uint `gorm:"primaryKey"`
+	FullName         string
+	UserName         string
+	Password         string
+	Email            string `json:"username" gorm:"unique"`
+	Role             Role
+	VerificationCode string
+	Verified         bool `gorm:"not null"`
+}
+
+type SignUpInput struct {
+	Name            string
+	Email           string
+	Password        string
+	PasswordConfirm string
+}
+
+type SignInInput struct {
+	Email    string
 	Password string
-	Email    string `json:"username" gorm:"unique"`
-	Role     Role
+}
+
+type UserResponse struct {
+	ID        uint
+	Name      string
+	Email     string
+	Role      Role
+	CreatedAt time.Time
+	UpdatedAt time.Time
 }
