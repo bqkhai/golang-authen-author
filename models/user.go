@@ -16,31 +16,28 @@ const (
 
 type User struct {
 	gorm.Model
-	Id               uint `gorm:"primaryKey"`
-	FullName         string
-	UserName         string
-	Password         string
-	Email            string `json:"username" gorm:"unique"`
-	Role             Role
-	VerificationCode string
-	Verified         bool `gorm:"not null"`
+	Id       uint   `gorm:"primaryKey"`
+	FullName string `json:"fullname"`
+	UserName string `json:"username"`
+	Password string `json:"password"`
+	Email    string `json:"email" gorm:"unique"`
+	Role     Role
 }
 
 type SignUpInput struct {
-	Name            string
-	Email           string
-	Password        string
-	PasswordConfirm string
+	Email           string `json:"email"`
+	Password        string `json:"password"`
+	PasswordConfirm string `json:"passwordConfirm"`
 }
 
 type SignInInput struct {
-	Email    string
-	Password string
+	Email    string `json:"email"`
+	Password string `json:"password"`
 }
 
 type UserResponse struct {
-	ID        uint
-	Name      string
+	Id        uint
+	FullName  string
 	Email     string
 	Role      Role
 	CreatedAt time.Time

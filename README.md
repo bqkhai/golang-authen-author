@@ -6,7 +6,7 @@
  - Docker
 
 ### Step run:
-- Install GoRM, Gin and orther packages
+- Install Golang, GoRM, Gin and orther packages
 - Run docker-compose up -d
 - Change environment in env file (not require)
 - Run code: go run main.go
