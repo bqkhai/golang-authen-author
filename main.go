@@ -16,6 +16,9 @@ func init() {
 
 func main() {
 	// Initialize Router
+	//
+	//
+	//
 	router := initRouter()
 	server_port := ":" + os.Getenv("SERVER_PORT")
 	router.Run(server_port)
